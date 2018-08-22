@@ -1,0 +1,28 @@
+#!/bin/bash
+R=0
+random_Number(){
+    R=$(($RANDOM%999999))
+}
+random_Number
+mkdir -p /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
+touch /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
+mkdir /tmp/stuff
+chmod -R 755 /tmp/follow_Me/
+chmod -R 755 /tmp/stuff/
+for filename in /tmp/scenario-getting-started/stuff/*;
+do
+    meow=$(echo -e $filename | cut -d'.' -f1 | cut -d'/' -f4)
+    mv $filename /tmp/stuff/$meow".txt"
+done
+random_Number
+echo $R"SUPERSECRET" > imatextfiletoo.txt
+mkdir /tmp/textfiles
+echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ullamcorper nisi. Morbi risus libero, ultricies in condimentum in, porttitor sit amet quam. Curabitur ultrices, magna ut viverra posuere, urna massa molestie ex, at pellentesque magna justo eget arcu. Vestibulum eget ante vulputate, euismod lacus in, lobortis nisl. Suspendisse tempus maximus erat ut consectetur. Donec molestie massa vitae commodo ultricies. Integer dignissim leo consequat nisi sodales, ac
+volutpat magna euismod. Maecenas urna sem, congue et libero nec, viverra condimentum ante. Praesent bibendum nulla ut sapien volutpat tincidunt. Sed sed nibh id ante maximus dignissim. Sed congue egestas lacinia. Duis non finibus arcu, a viverra mauris. Nunc ac felis ac turpis congue faucibus." > one.txt
+echo "7625837645734265487236549367527365827634587623485763982576489237645832765489762385497632" > two.txt
+echo -e "Fighting evil by moonlight\nWinning love by daylight\nNever running from a real fight\nShe is the one named Sailor Moon\nShe will never turn her back on a friend\nShe is always there to defend\nShe is the one on whom we depend" > three.txt
+chmod -R 755 /tmp/textfiles
+mkdir /tmp/editme
+echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > editme.txt
+chmod -R 755 /tmp/editme
+
