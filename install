@@ -1,5 +1,6 @@
 #!/bin/bash
 R=0
+imageLoc=(/tmp/i/b/e/j/l/s/v/ /tmp/i/a/g/kitty/m/q/w/ /tmp/i/c/e/h/k/ /tmp/i/a/e/kitty/ /tmp/i/z/g/j/l/o/w/ /tmp/i/d/f/kitty/k/n/t/)
 random_Number(){
     R=$(($RANDOM%999999))
 }
@@ -25,4 +26,15 @@ chmod -R 755 /tmp/textfiles
 mkdir /tmp/editme
 echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > editme.txt
 chmod -R 755 /tmp/editme
-
+mkdir -p /tmp/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
+chmod -R 755 /tmp/i
+counter=0
+for filename in /tmp/scenario-getting-started/images/*;
+do
+    meow=$(echo -e $filename | cut -d'/' -f5)
+    mv $filename ${imageLoc[$counter]}$meow
+    counter=$((counter+1))
+done
+mkdir /tmp/final-mission
+chmod 755 /tmp/final-mission
+mv /tmp/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
