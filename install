@@ -1,21 +1,40 @@
 #!/bin/bash
+
+# R is for assigning a random number to it
 R=0
+
+# imageLoc is an array used to disperse images to multiple locations that I set up later
 imageLoc=(/tmp/i/b/e/j/l/s/v/ /tmp/i/a/g/kitty/m/q/w/ /tmp/i/c/e/h/k/ /tmp/i/a/e/kitty/ /tmp/i/z/g/j/l/o/w/ /tmp/i/d/f/kitty/k/n/t/)
+
+# Function to create a random number every time it is called
 random_Number(){
     R=$(($RANDOM%999999))
 }
+
+# How you call a function in bash. Just type the name lol
 random_Number
+
+# Making directories and chmoding them for the scenario
 mkdir -p /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
 touch /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
 mkdir /tmp/stuff
 chmod -R 755 /tmp/follow_Me/
 chmod -R 755 /tmp/stuff/
+
+# Moving the files from toLearn into /tmp/toLearn
+mv /tmp/scenario-getting-started/toLearn
+chmod -R 755 /tmp/toLearn
+
+# This takes all the files in stuff, cuts them apart to just the name and moves them to a new folder called stuff with .txt at the end of each. Instead of the original file ext.
 for filename in /tmp/scenario-getting-started/stuff/*;
 do
     meow=$(echo -e $filename | cut -d'.' -f1 | cut -d'/' -f4)
     mv $filename /tmp/stuff/$meow".txt"
 done
+
 random_Number
+
+# More setting up for the scenario
 echo $R"SUPERSECRET" > imatextfiletoo.txt
 mkdir /tmp/textfiles
 echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ullamcorper nisi. Morbi risus libero, ultricies in condimentum in, porttitor sit amet quam. Curabitur ultrices, magna ut viverra posuere, urna massa molestie ex, at pellentesque magna justo eget arcu. Vestibulum eget ante vulputate, euismod lacus in, lobortis nisl. Suspendisse tempus maximus erat ut consectetur. Donec molestie massa vitae commodo ultricies. Integer dignissim leo consequat nisi sodales, ac
@@ -26,8 +45,12 @@ chmod -R 755 /tmp/textfiles
 mkdir /tmp/editme
 echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > editme.txt
 chmod -R 755 /tmp/editme
+
+# This is a nifty way to create multiple folders all at once :3 
 mkdir -p /tmp/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
 chmod -R 755 /tmp/i
+
+# Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
 counter=0
 for filename in /tmp/scenario-getting-started/images/*;
 do
@@ -35,6 +58,8 @@ do
     mv $filename ${imageLoc[$counter]}$meow
     counter=$((counter+1))
 done
+
+# Final Mission setup
 mkdir /tmp/final-mission
 chmod 755 /tmp/final-mission
 mv /tmp/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
