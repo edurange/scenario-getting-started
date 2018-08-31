@@ -61,7 +61,4 @@ do
 done
 
 # Final Mission setup
-mkdir /tmp/final-mission
-chmod 755 /tmp/final-mission
-mv /tmp/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
-rm -r /tmp/final-mission
+mv /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
