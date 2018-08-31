@@ -32,11 +32,10 @@ do
     meow=$(echo -e $filename | cut -d'.' -f1 | cut -d'/' -f5)
     mv $filename /tmp/stuff/$meow".txt"
 done
-
 random_Number
+echo $R"SUPERSECRET" > /tmp/stuff/imatextfiletoo.txt
 
 # More setting up for the scenario
-echo $R"SUPERSECRET" > imatextfiletoo.txt
 mkdir /tmp/textfiles
 echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ullamcorper nisi. Morbi risus libero, ultricies in condimentum in, porttitor sit amet quam. Curabitur ultrices, magna ut viverra posuere, urna massa molestie ex, at pellentesque magna justo eget arcu. Vestibulum eget ante vulputate, euismod lacus in, lobortis nisl. Suspendisse tempus maximus erat ut consectetur. Donec molestie massa vitae commodo ultricies. Integer dignissim leo consequat nisi sodales, ac
 volutpat magna euismod. Maecenas urna sem, congue et libero nec, viverra condimentum ante. Praesent bibendum nulla ut sapien volutpat tincidunt. Sed sed nibh id ante maximus dignissim. Sed congue egestas lacinia. Duis non finibus arcu, a viverra mauris. Nunc ac felis ac turpis congue faucibus." > one.txt
