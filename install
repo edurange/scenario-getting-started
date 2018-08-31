@@ -15,14 +15,15 @@ random_Number(){
 random_Number
 
 # Making directories and chmoding them for the scenario
-mkdir -p /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
-touch /tmp/follow_Me/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
+mkdir -p /tmp/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
+touch /tmp/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
 mkdir /tmp/stuff
-chmod -R 755 /tmp/follow_Me/
+chmod -R 755 /tmp/followMe/
 chmod -R 755 /tmp/stuff/
 
 # Moving the files from toLearn into /tmp/toLearn
-mv /tmp/scenario-getting-started/toLearn
+mkdir /tmp/toLearn
+mv /tmp/scenario-getting-started/toLearn/* /tmp/toLearn/
 chmod -R 755 /tmp/toLearn
 
 # This takes all the files in stuff, cuts them apart to just the name and moves them to a new folder called stuff with .txt at the end of each. Instead of the original file ext.
