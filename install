@@ -58,4 +58,6 @@ done
 
 # Final Mission setup
 mv /tmp/scenario-getting-started/final-mission/.U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/.U348bdks8cowFJS8dJF3hHDFj.jpg
+mkdir /tmp/final-mission
+chmod 755 /tmp/final-mission
 rm -r /tmp/scenario-getting-started
