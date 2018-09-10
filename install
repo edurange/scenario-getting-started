@@ -61,7 +61,7 @@ chmod -R 755 /tmp/i
 counter=0
 for filename in /tmp/scenario-getting-started/images/*;
 do
-    mv $filename ${imageLoc[$counter]}${meow[$counter]}
+    mv $filename ${imageLoc[$counter]}${imageName[$counter]}
     counter=$((counter+1))
 done
 
