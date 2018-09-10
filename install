@@ -5,6 +5,7 @@ R=0
 
 # imageLoc is an array used to disperse images to multiple locations that I set up later
 imageLoc=(/tmp/i/b/e/j/l/s/v/ /tmp/i/a/g/kitty/m/q/w/ /tmp/i/c/e/h/k/ /tmp/i/a/e/kitty/ /tmp/i/z/g/j/l/o/w/ /tmp/i/d/f/kitty/k/n/t/)
+imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
 
 # Function to create a random number every time it is called
 random_Number(){
@@ -26,12 +27,18 @@ mkdir /tmp/toLearn
 mv /tmp/scenario-getting-started/toLearn/* /tmp/toLearn/
 chmod -R 755 /tmp/toLearn
 
+<<<<<<< HEAD
+# This takes all the files in stuff moves to /tmp/stuff
+mv /tmp/scenario-getting-started/stuff/* /tmp/stuff/
+
+=======
 # This takes all the files in stuff, cuts them apart to just the name and moves them to a new folder called stuff with .txt at the end of each. Instead of the original file ext.
 for filename in /tmp/scenario-getting-started/stuff/*;
 do
     meow=$(echo -e $filename | cut -d'.' -f1 | cut -d'/' -f5)
     mv $filename /tmp/stuff/$meow".txt"
 done
+>>>>>>> 58575d428835e740f8c3f7812f5603acb8a8c99e
 random_Number
 echo $R"SUPERSECRET" > /tmp/stuff/imatextfiletoo.txt
 
@@ -54,10 +61,14 @@ chmod -R 755 /tmp/i
 counter=0
 for filename in /tmp/scenario-getting-started/images/*;
 do
-    meow=$(echo -e $filename | cut -d'/' -f5)
-    mv $filename ${imageLoc[$counter]}$meow
+    mv $filename ${imageLoc[$counter]}${meow[$counter]}
     counter=$((counter+1))
 done
 
 # Final Mission setup
+<<<<<<< HEAD
+mv /tmp/scenario-getting-started/final-mission/.U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/.U348bdks8cowFJS8dJF3hHDFj.jpg
+rm -r /tmp/scenario-getting-started
+=======
 mv /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
+>>>>>>> 58575d428835e740f8c3f7812f5603acb8a8c99e
