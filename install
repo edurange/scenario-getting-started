@@ -53,7 +53,6 @@ for studentDIR in "${DIRS[@]}"; do
 
     # This is a nifty way to create multiple folders all at once :3 
     mkdir -p /$studentDIR/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
-    chmod -R 777 /$studentDIR/i
 
     # Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
     counter=0
@@ -62,6 +61,8 @@ for studentDIR in "${DIRS[@]}"; do
         cp $filename ${imageLoc[$counter]}${imageName[$counter]}
         counter=$((counter+1))
     done
+
+    chmod -R 777 /$studentDIR/i
 
     # Final Mission setup
     cp /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /$studentDIR/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
