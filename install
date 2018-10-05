@@ -31,11 +31,11 @@ for studentDIR in "${DIRS[@]}"; do
 
     # Moving the files from toLearn into /tmp/toLearn
     mkdir /$studentDIR/toLearn
-    mv /$studentDIR/scenario-getting-started/toLearn/* /$studentDIR/toLearn/
+    cp /tmp/scenario-getting-started/toLearn/* /$studentDIR/toLearn/
     chmod -R 777 /$studentDIR/toLearn
 
     # This takes all the files in stuff moves to /tmp/stuff
-    mv /$studentDIR/scenario-getting-started/stuff/* /$studentDIR/stuff/
+    cp /tmp/scenario-getting-started/stuff/* /$studentDIR/stuff/
 
     random_Number
     echo $R"SUPERSECRET" > /$studentDIR/stuff/imatextfiletoo.txt
@@ -57,17 +57,17 @@ for studentDIR in "${DIRS[@]}"; do
 
     # Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
     counter=0
-    for filename in /$studentDIR/scenario-getting-started/images/*;
+    for filename in /tmp/scenario-getting-started/images/*;
     do
-        mv $filename ${imageLoc[$counter]}${imageName[$counter]}
+        cp $filename ${imageLoc[$counter]}${imageName[$counter]}
         counter=$((counter+1))
     done
 
     # Final Mission setup
-    mv /$studentDIR/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /$studentDIR/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
-    mv /$studentDIR/scenario-getting-started/final-mission/.donthackme /$studentDIR/i/y/f/kitty/k/r/u/.donthackme
+    cp /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /$studentDIR/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
+    cp /tmp/scenario-getting-started/final-mission/.donthackme /$studentDIR/i/y/f/kitty/k/r/u/.donthackme
     chmod 777 /$studentDIR/i/y/f/kitty/k/r/u/*
     mkdir /$studentDIR/final-mission
     chmod 777 /$studentDIR/final-mission
-    rm -r /$studentDIR/scenario-getting-started
 done
+rm -r /tmp/scenario-getting-started
