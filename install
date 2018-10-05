@@ -67,7 +67,7 @@ for studentDIR in "${DIRS[@]}"; do
     # Final Mission setup
     cp /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /$studentDIR/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
     cp /tmp/scenario-getting-started/final-mission/.donthackme /$studentDIR/i/y/f/kitty/k/r/u/.donthackme
-    chmod 777 /$studentDIR/i/y/f/kitty/k/r/u/*
+    chmod -R 777 /$studentDIR/i/y/f/kitty/k/r/u/*
     mkdir /$studentDIR/final-mission
     chmod 777 /$studentDIR/final-mission
 done
