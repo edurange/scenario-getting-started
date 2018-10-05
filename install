@@ -2,64 +2,72 @@
 
 # R is for assigning a random number to it
 R=0
-
-# imageLoc is an array used to disperse images to multiple locations that I set up later
-imageLoc=(/tmp/i/b/e/j/l/s/v/ /tmp/i/a/g/kitty/m/q/w/ /tmp/i/c/e/h/k/ /tmp/i/a/e/kitty/ /tmp/i/z/g/j/l/o/w/ /tmp/i/d/f/kitty/k/n/t/)
-imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
-
-# Function to create a random number every time it is called
-random_Number(){
-    R=$(($RANDOM%999999))
-}
-
-# How you call a function in bash. Just type the name lol
-random_Number
-
-# Making directories and chmoding them for the scenario
-mkdir -p /tmp/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
-touch /tmp/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
-mkdir /tmp/stuff
-chmod -R 755 /tmp/followMe/
-chmod -R 755 /tmp/stuff/
-
-# Moving the files from toLearn into /tmp/toLearn
-mkdir /tmp/toLearn
-mv /tmp/scenario-getting-started/toLearn/* /tmp/toLearn/
-chmod -R 755 /tmp/toLearn
-
-# This takes all the files in stuff moves to /tmp/stuff
-mv /tmp/scenario-getting-started/stuff/* /tmp/stuff/
-
-random_Number
-echo $R"SUPERSECRET" > /tmp/stuff/imatextfiletoo.txt
-
-# More setting up for the scenario
-mkdir /tmp/textfiles
-echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ullamcorper nisi. Morbi risus libero, ultricies in condimentum in, porttitor sit amet quam. Curabitur ultrices, magna ut viverra posuere, urna massa molestie ex, at pellentesque magna justo eget arcu. Vestibulum eget ante vulputate, euismod lacus in, lobortis nisl. Suspendisse tempus maximus erat ut consectetur. Donec molestie massa vitae commodo ultricies. Integer dignissim leo consequat nisi sodales, acvolutpat magna
-euismod. Maecenas urna sem, congue et libero nec, viverra condimentum ante. Praesent bibendum nulla ut sapien volutpat tincidunt. Sed sed nibh id ante maximus dignissim. Sed congue egestas lacinia. Duis non finibus arcu, a viverra mauris. Nunc ac felis ac turpis congue faucibus." > /tmp/textfiles/one.txt
-echo "7625837645734265487236549367527365827634587623485763982576489237645832765489762385497632" > /tmp/textfiles/two.txt
-echo -e "Fighting evil by moonlight\nWinning love by daylight\nNever running from a real fight\nShe is the one named Sailor Moon\nShe will never turn her back on a friend\nShe is always there to defend\nShe is the one on whom we depend" > /tmp/textfiles/three.txt
-chmod -R 755 /tmp/textfiles
-mkdir /tmp/editme
-echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > /tmp/editme/editme.txt
-chmod -R 755 /tmp/editme
-
-# This is a nifty way to create multiple folders all at once :3 
-mkdir -p /tmp/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
-chmod -R 755 /tmp/i
-
-# Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
-counter=0
-for filename in /tmp/scenario-getting-started/images/*;
-do
-    mv $filename ${imageLoc[$counter]}${imageName[$counter]}
-    counter=$((counter+1))
+DIRS=()
+for FILE in /home/*; do
+    if [[ -d $FILE ]]; then
+        DIRS+=( "$FILE" )
+        echo $FILE
+    fi
 done
+for studentDIR in "${DIRS[@]}"; do
+    # imageLoc is an array used to disperse images to multiple locations that I set up later
+    imageLoc=(/$studentDIR/i/b/e/j/l/s/v/ /$studentDIR/i/a/g/kitty/m/q/w/ /$studentDIR/i/c/e/h/k/ /$studentDIR/i/a/e/kitty/ /$studentDIR/i/z/g/j/l/o/w/ /$studentDIR/i/d/f/kitty/k/n/t/)
+    imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
 
-# Final Mission setup
-mv /tmp/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /tmp/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
-mv /tmp/scenario-getting-started/final-mission/.donthackme /tmp/i/y/f/kitty/k/r/u/.donthackme
-chmod 755 /tmp/i/y/f/kitty/k/r/u/*
-mkdir /tmp/final-mission
-chmod 755 /tmp/final-mission
-rm -r /tmp/scenario-getting-started
+    # Function to create a random number every time it is called
+    random_Number(){
+        R=$(($RANDOM%999999))
+    }
+
+    # How you call a function in bash. Just type the name lol
+    random_Number
+
+    # Making directories and chmoding them for the scenario
+    mkdir -p /$studentDIR/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
+    touch /$studentDIR/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
+    mkdir /$studentDIR/stuff
+    chmod -R 777 /$studentDIR/followMe/
+    chmod -R 777 /$studentDIR/stuff/
+
+    # Moving the files from toLearn into /tmp/toLearn
+    mkdir /$studentDIR/toLearn
+    mv /$studentDIR/scenario-getting-started/toLearn/* /$studentDIR/toLearn/
+    chmod -R 777 /$studentDIR/toLearn
+
+    # This takes all the files in stuff moves to /tmp/stuff
+    mv /$studentDIR/scenario-getting-started/stuff/* /$studentDIR/stuff/
+
+    random_Number
+    echo $R"SUPERSECRET" > /$studentDIR/stuff/imatextfiletoo.txt
+
+    # More setting up for the scenario
+    mkdir /$studentDIR/textfiles
+    echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ullamcorper nisi. Morbi risus libero, ultricies in condimentum in, porttitor sit amet quam. Curabitur ultrices, magna ut viverra posuere, urna massa molestie ex, at pellentesque magna justo eget arcu. Vestibulum eget ante vulputate, euismod lacus in, lobortis nisl. Suspendisse tempus maximus erat ut consectetur. Donec molestie massa vitae commodo ultricies. Integer dignissim leo consequat nisi sodales, acvolutpat magna
+    euismod. Maecenas urna sem, congue et libero nec, viverra condimentum ante. Praesent bibendum nulla ut sapien volutpat tincidunt. Sed sed nibh id ante maximus dignissim. Sed congue egestas lacinia. Duis non finibus arcu, a viverra mauris. Nunc ac felis ac turpis congue faucibus." > /$studentDIR/textfiles/one.txt
+    echo "7625837645734265487236549367527365827634587623485763982576489237645832765489762385497632" > /$studentDIR/textfiles/two.txt
+    echo -e "Fighting evil by moonlight\nWinning love by daylight\nNever running from a real fight\nShe is the one named Sailor Moon\nShe will never turn her back on a friend\nShe is always there to defend\nShe is the one on whom we depend" > /$studentDIR/textfiles/three.txt
+    chmod -R 777 /$studentDIR/textfiles
+    mkdir /$studentDIR/editme
+    echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > /$studentDIR/editme/editme.txt
+    chmod -R 777 /$studentDIR/editme
+
+    # This is a nifty way to create multiple folders all at once :3 
+    mkdir -p /$studentDIR/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
+    chmod -R 777 /$studentDIR/i
+
+    # Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
+    counter=0
+    for filename in /$studentDIR/scenario-getting-started/images/*;
+    do
+        mv $filename ${imageLoc[$counter]}${imageName[$counter]}
+        counter=$((counter+1))
+    done
+
+    # Final Mission setup
+    mv /$studentDIR/scenario-getting-started/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg /$studentDIR/i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
+    mv /$studentDIR/scenario-getting-started/final-mission/.donthackme /$studentDIR/i/y/f/kitty/k/r/u/.donthackme
+    chmod 777 /$studentDIR/i/y/f/kitty/k/r/u/*
+    mkdir /$studentDIR/final-mission
+    chmod 777 /$studentDIR/final-mission
+    rm -r /$studentDIR/scenario-getting-started
+done
