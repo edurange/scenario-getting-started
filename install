@@ -10,7 +10,7 @@ for FILE in /home/*; do
     fi
 done
 for studentDIR in "${DIRS[@]}"; do
-    student=$(basename $studentDIR)
+    player=$(basename $studentDIR)
     # imageLoc is an array used to disperse images to multiple locations that I set up later
     imageLoc=(/$studentDIR/i/b/e/j/l/s/v/ /$studentDIR/i/a/g/kitty/m/q/w/ /$studentDIR/i/c/e/h/k/ /$studentDIR/i/a/e/kitty/ /$studentDIR/i/z/g/j/l/o/w/ /$studentDIR/i/d/f/kitty/k/n/t/)
     imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
