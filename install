@@ -39,7 +39,7 @@ for studentDIR in "${DIRS[@]}"; do
     cp /tmp/scenario-getting-started/stuff/* /$studentDIR/stuff/
 
     secret=$(edurange-get-var user $player super_secret)
-    echo "SUPER SECRET: $secret" > /$studentDIR/stuff/imatextfiletoo.txt
+    echo "SECRET CODE: $secret" > /$studentDIR/stuff/imatextfiletoo.txt
 
     # More setting up for the scenario
     mkdir /$studentDIR/textfiles
@@ -72,4 +72,3 @@ for studentDIR in "${DIRS[@]}"; do
     mkdir /$studentDIR/final-mission
     chmod 777 /$studentDIR/final-mission
 done
-rm -r /tmp/scenario-getting-started
