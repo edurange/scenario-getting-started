@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# R is for assigning a random number to it
-R=0
 DIRS=()
 for FILE in /home/*; do
     if [[ -d $FILE ]]; then
@@ -15,17 +13,11 @@ for studentDIR in "${DIRS[@]}"; do
     imageLoc=(/$studentDIR/i/b/e/j/l/s/v/ /$studentDIR/i/a/g/kitty/m/q/w/ /$studentDIR/i/c/e/h/k/ /$studentDIR/i/a/e/kitty/ /$studentDIR/i/z/g/j/l/o/w/ /$studentDIR/i/d/f/kitty/k/n/t/)
     imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
 
-    # Function to create a random number every time it is called
-    random_Number(){
-        R=$(($RANDOM%999999))
-    }
-
-    # How you call a function in bash. Just type the name lol
-    random_Number
+    follow_me_filename=$(edurange-get-var user $player follow_me_filename)
 
     # Making directories and chmoding them for the scenario
     mkdir -p /$studentDIR/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!
-    touch /$studentDIR/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$R
+    touch /$studentDIR/followMe/keepGOING/another\ folder\ wee/im.another.folder/WOOT/dontstop/okYouAreHERE\!/$follow_me_filename
     mkdir /$studentDIR/stuff
     chmod -R 777 /$studentDIR/followMe/
     chmod -R 777 /$studentDIR/stuff/
