@@ -10,6 +10,7 @@ for FILE in /home/*; do
     fi
 done
 for studentDIR in "${DIRS[@]}"; do
+    student = basename studentDIR
     # imageLoc is an array used to disperse images to multiple locations that I set up later
     imageLoc=(/$studentDIR/i/b/e/j/l/s/v/ /$studentDIR/i/a/g/kitty/m/q/w/ /$studentDIR/i/c/e/h/k/ /$studentDIR/i/a/e/kitty/ /$studentDIR/i/z/g/j/l/o/w/ /$studentDIR/i/d/f/kitty/k/n/t/)
     imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
@@ -37,8 +38,8 @@ for studentDIR in "${DIRS[@]}"; do
     # This takes all the files in stuff moves to /tmp/stuff
     cp /tmp/scenario-getting-started/stuff/* /$studentDIR/stuff/
 
-    random_Number
-    echo $R"SUPERSECRET" > /$studentDIR/stuff/imatextfiletoo.txt
+    secret = $(edurange-get-var user $player super_secret)
+    echo "SUPER SECRET: $secret" > /$studentDIR/stuff/imatextfiletoo.txt
 
     # More setting up for the scenario
     mkdir /$studentDIR/textfiles
@@ -51,10 +52,10 @@ for studentDIR in "${DIRS[@]}"; do
     echo -e "Line 1\nLine 2\nLine 3\nLine 4\nLine 5" > /$studentDIR/editme/editme.txt
     chmod -R 777 /$studentDIR/editme
 
-    # This is a nifty way to create multiple folders all at once :3 
+    # This is a nifty way to create multiple folders all at once :3
     mkdir -p /$studentDIR/i/{a,b,c,d,z,y,x}/{e,f,g}/{h,kitty,j}/{k,l,m}/{n,o,p,q,r,s}/{t,u,v,w}
 
-    # Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location 
+    # Counter is used for the following for loop. Taking each image in the folder images and moving them to a new location
     counter=0
     for filename in /tmp/scenario-getting-started/images/*;
     do
