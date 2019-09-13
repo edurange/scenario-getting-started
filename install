@@ -1,5 +1,11 @@
 #!/bin/bash
 set -euxo pipefail
 %{ for player in players }
-/home/ubuntu/setup_home ${player.login} ${player.follow_me_filename} ${player.super_secret}
+/home/ubuntu/setup_home ${player.login} ${player.super_secret} ${player.follow_me_filename}
 %{ endfor ~}
+rm -rf /home/ubuntu/install
+rm -rf /home/ubuntu/setup_home
+rm -rf /home/ubuntu/stuff
+rm -rf /home/ubuntu/toLearn
+rm -rf /home/ubuntu/images
+rm -rf /home/ubuntu/final-mission

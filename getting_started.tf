@@ -8,6 +8,16 @@ variable "students" {
   description = "list of players"
 }
 
+variable "aws_access_key_id" {
+  type = string
+}
+variable "aws_secret_access_key" {
+  type = string
+}
+variable "aws_region" {
+  type = string
+}
+
 variable "scenario_id" {
   type        = string
   description = "identifier for instance of this scenario"
@@ -19,8 +29,24 @@ locals {
   }
 }
 
+provider "local" {
+  version    = "~> 1"
+}
+
+provider "template" {
+  version = "~> 2"
+}
+
+provider "tls" {
+  version = "~> 2"
+}
+
 provider "aws" {
-  profile = "default"
+  version    = "~> 2"
+  profile    = "default"
+  region     = var.aws_region
+  access_key = var.aws_access_key_id
+  secret_key = var.aws_secret_access_key
 }
 
 data "aws_ami" "ubuntu" {
@@ -66,8 +92,21 @@ data "template_cloudinit_config" "getting_started" {
   base64_encode = true
 
   part {
+    filename     = "bash_history.cfg"
+    content_type = "text/cloud-config"
+    merge_type   = "list(append)+dict(recurse_list)"
+    content = templatefile("${path.module}/bash_history.yml.tpl", {
+      aws_key_id  = var.aws_access_key_id
+      aws_sec_key = var.aws_secret_access_key
+      scenario_id = var.scenario_id
+      players     = var.students
+    })
+  }
+
+  part {
     filename     = "init.cfg"
     content_type = "text/cloud-config"
+    merge_type   = "list(append)+dict(recurse_list)"
     content = templatefile("${path.module}/cloud-init.yml.tpl", {
       players = var.students
     })
@@ -153,6 +192,7 @@ resource "aws_instance" "getting_started" {
 
   provisioner "remote-exec" {
     inline = [
+      "set -eux",
       "cloud-init status --wait --long",
       "chmod +x /home/ubuntu/install",
       "chmod +x /home/ubuntu/setup_home",

@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 player=$1
-secret=$2
+super_secret=$2
 follow_me_filename=$3
 
 studentDIR=/home/$player
@@ -26,7 +26,7 @@ chmod -R 440 $studentDIR/toLearn
 
 cp /home/ubuntu/stuff/* $studentDIR/stuff/
 
-echo "SECRET CODE: $secret" > $studentDIR/stuff/imatextfiletoo.txt
+echo "SECRET CODE: $super_secret" > $studentDIR/stuff/imatextfiletoo.txt
 
 # More setting up for the scenario
 mkdir $studentDIR/textfiles
@@ -61,3 +61,5 @@ cp /home/ubuntu/final-mission/.donthackme $studentDIR/i/y/f/kitty/k/r/u/.donthac
 chmod -R 660 $studentDIR/i/y/f/kitty/k/r/u/*
 mkdir $studentDIR/final-mission
 chmod 660 $studentDIR/final-mission
+
+find $studentDIR -type d -exec chmod +x {} \;
