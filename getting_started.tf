@@ -1,4 +1,4 @@
-variable "players" {
+variable "students" {
   type = list(object({
     login              = string,
     password           = object({ plaintext = string, hash = string }),
@@ -69,13 +69,13 @@ data "template_cloudinit_config" "getting_started" {
     filename     = "init.cfg"
     content_type = "text/cloud-config"
     content = templatefile("${path.module}/cloud-init.yml.tpl", {
-      players = var.players
+      players = var.students
     })
   }
 }
 
 resource "aws_security_group" "getting_started" {
-  name = "getting_started"
+  name = "getting_started/${var.scenario_id}"
 
   ingress {
     from_port   = "22"
@@ -120,33 +120,33 @@ resource "aws_instance" "getting_started" {
 
   # upload files
   provisioner "file" {
-    source      = "stuff"
+    source      = "${path.module}/stuff"
     destination = "/home/ubuntu"
   }
 
   provisioner "file" {
-    source      = "images"
+    source      = "${path.module}/images"
     destination = "/home/ubuntu"
   }
 
   provisioner "file" {
-    source      = "toLearn"
+    source      = "${path.module}/toLearn"
     destination = "/home/ubuntu"
   }
 
   provisioner "file" {
-    source      = "final-mission"
+    source      = "${path.module}/final-mission"
     destination = "/home/ubuntu"
   }
 
   provisioner "file" {
-    source = "setup_home"
+    source = "${path.module}/setup_home"
     destination = "/home/ubuntu/setup_home"
   }
 
   provisioner "file" {
     content = templatefile("${path.module}/install", {
-      players = var.players
+      players = var.students
     })
     destination = "/home/ubuntu/install"
   }
@@ -162,6 +162,9 @@ resource "aws_instance" "getting_started" {
 
 }
 
-#output "getting_started_public_ip" {
-#
-#}
+output "instances" {
+  value = [{
+    name = "getting_started"
+    public_ip = aws_instance.getting_started.public_ip
+  }]
+}
