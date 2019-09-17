@@ -205,6 +205,7 @@ resource "aws_instance" "getting_started" {
 output "instances" {
   value = [{
     name = "getting_started"
-    public_ip = aws_instance.getting_started.public_ip
+    ip_address_public  = aws_instance.getting_started.public_ip
+    ip_address_private = aws_instance.getting_started.private_ip
   }]
 }
