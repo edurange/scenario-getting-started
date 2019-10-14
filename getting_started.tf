@@ -115,7 +115,43 @@ data "template_cloudinit_config" "getting_started" {
   }
 }
 
+resource "aws_vpc" "cloud" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name        = "getting_started/cloud"
+    scenario_id = var.scenario_id
+  }
+}
+
+resource "aws_internet_gateway" "default"{
+  vpc_id = aws_vpc.cloud.id
+}
+
+resource "aws_subnet" "public" {
+  vpc_id        = aws_vpc.cloud.id
+  cidr_block    = "10.0.0.0/24"
+  tags = {
+    Name = "getting_started/public"
+  }
+}
+
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.cloud.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.default.id
+  }
+
+}
+
+resource "aws_route_table_association" "gs_subnet_route_table_association"{
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.public.id
+}
+
 resource "aws_security_group" "getting_started" {
+  vpc_id = aws_vpc.cloud.id
   name = "getting_started/${var.scenario_id}"
 
   ingress {
@@ -142,11 +178,15 @@ resource "aws_security_group" "getting_started" {
 }
 
 resource "aws_instance" "getting_started" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.nano"
-  user_data_base64       = data.template_cloudinit_config.getting_started.rendered
-  key_name               = aws_key_pair.key.key_name
-  vpc_security_group_ids = [aws_security_group.getting_started.id]
+  ami                    	= data.aws_ami.ubuntu.id
+  instance_type          	= "t2.nano"
+  private_ip             	= "10.0.0.5"
+  associate_public_ip_address   = true
+  source_dest_check      	= false
+  user_data_base64       	= data.template_cloudinit_config.getting_started.rendered
+  subnet_id			= aws_subnet.public.id
+  key_name               	= aws_key_pair.key.key_name
+  vpc_security_group_ids 	= [aws_security_group.getting_started.id]
 
   tags = merge(local.common_tags, {
     Name = "getting_started"
