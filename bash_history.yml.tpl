@@ -60,22 +60,17 @@ apt:
         =Me4L
         -----END PGP PUBLIC KEY BLOCK-----
 write_files:
-- path: '/ubuntu/log_bash'
-  permissions: '0550'
-  content: |2
-    PROMPT_COMMAND='echo -e "$?\t$(date --utc +%FT%T.%3NZ)\t$(whoami)\t$(pwd)\t$(history 1 | cut -c 8-)" >> ~/.bash_history.log'
 - path: '/ubuntu/td-agent.conf'
   permissions: '0440'
   content: |2
     <source>
       @type tail
       @id bash_history_tail
-      path /home/*/.bash_history.log
+      path /usr/local/src/logs/*/.cli.log
       pos_file /var/log/td-agent/bash_history.log.pos
       <parse>
         @type tsv
-        keys exit_code,time,user,cwd,cmd
-        time_key time
+        keys begin,host,time,cwd,cmd,output,prompt
       </parse>
       tag bash_history
     </source>
@@ -96,22 +91,10 @@ write_files:
         @type json
       </format>
 
-      <inject>
-        time_key time
-        time_type string
-        time_format %Y-%m-%dT%H:%M:%S.%NZ
-        hostname_key hostname
-      </inject>
-
       buffer_chunk_limit 256m
     </match>
 runcmd:
 - set -eu
-- cat /ubuntu/log_bash >> /etc/bash.bashrc
-- rm /ubuntu/log_bash
 - mv /ubuntu/td-agent.conf /etc/td-agent/td-agent.conf
 - chown td-agent:td-agent /etc/td-agent/td-agent.conf
-%{ for player in players }
-- sudo -u ${player.login} touch /home/${player.login}/.bash_history.log
-%{ endfor }
 - service td-agent restart

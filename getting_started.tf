@@ -231,6 +231,16 @@ resource "aws_instance" "getting_started" {
     })
     destination = "/home/ubuntu/install"
   }
+  
+  provisioner "file"{
+    source = "${path.module}/ttylog"
+    destination = "/home/ubuntu/"
+  }
+
+  provisioner "file"{
+    source = "${path.module}/tty_setup"
+    destination = "/home/ubuntu/tty_setup"
+  }
 
   provisioner "remote-exec" {
     inline = [
@@ -238,7 +248,10 @@ resource "aws_instance" "getting_started" {
       "cloud-init status --wait --long",
       "chmod +x /home/ubuntu/install",
       "chmod +x /home/ubuntu/setup_home",
-      "sudo /home/ubuntu/install"
+      "chmod +x /home/ubuntu/tty_setup",
+      "sudo /home/ubuntu/tty_setup",
+      "sudo /home/ubuntu/install",
+      "rm /home/ubuntu/tty_setup"
     ]
   }
 

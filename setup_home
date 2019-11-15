@@ -22,6 +22,7 @@ chmod -R 440 /$studentDIR/stuff
 
 mkdir $studentDIR/toLearn
 cp /home/ubuntu/toLearn/* $studentDIR/toLearn/
+chown -R $player:$player $studentDIR/toLearn
 chmod -R 440 $studentDIR/toLearn
 
 cp /home/ubuntu/stuff/* $studentDIR/stuff/
@@ -60,6 +61,7 @@ cp /home/ubuntu/final-mission/U348bdks8cowFJS8dJF3hHDFj.jpg $studentDIR/i/y/f/ki
 cp /home/ubuntu/final-mission/.donthackme $studentDIR/i/y/f/kitty/k/r/u/.donthackme
 chmod -R 660 $studentDIR/i/y/f/kitty/k/r/u/*
 mkdir $studentDIR/final-mission
+chown -R $player:$player $studentDIR/final-mission
 chmod 660 $studentDIR/final-mission
 
 find $studentDIR -type d -exec chmod +x {} \;
