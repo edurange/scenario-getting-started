@@ -5,6 +5,7 @@ ssh_pwauth: yes
 hostname: getting-started
 packages:
 - cowsay
+- fortune
 users:
 - default
 %{ for player in players ~}

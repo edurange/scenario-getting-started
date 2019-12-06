@@ -10,9 +10,11 @@ for row in reader:
     lineStr = ''
     for i,item in enumerate(row):
         if i == 5:
-            item = item.replace("\r", "").replace("\n", "")
+            item = item.replace("\r", "").replace("\n", "#%#")
             item = item.replace('\"', '').replace(",", "")
             item = item.replace('\t', '')
+            if len(item) > 0:
+                item = '%'+ item + '%'
         if i == 0:
             lineStr += item.strip('\n\r')
         else:
