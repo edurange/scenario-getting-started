@@ -1,0 +1,36 @@
+*,cd \/,*
+*,cd /root,*
+*,cd,*
+*,cd ..\/,*
+*,pwd,*
+*,ls,*
+*,ls -la,*
+*,*,be1cb7e6
+*,sudo,*
+*,man *ls,*
+*,man file,*
+*,file *dog\.jpg,dog\.jpg: ASCII text
+*,file *cat\.jpg,cat\.jpg: JPEG image
+*,cat *dog\.jpg,meow
+*,cat *imatextfiletoo.txt,SECRET CODE
+*,man *touch,*
+*,echo ['"]?(\w\s?)+['"]? *> *\w+,*
+*,echo ['"]?(\w\s?)+['"]? *>> *\w+,*
+*,*,alltogether.txt
+*,vim *editme.txt,*
+*,vimtutor,*
+*,*,edurange3.GIF
+*,*,edurange001.gif
+*,*,4edurange.jpeg
+*,*,edurange5meow.JPG
+*,*,002edurange.jpg
+*,*,edurange006weeeeeee.png
+*,man *mv,*
+*,man *cp,*
+*,cowsay ['"]?(\w\s?)+['"]?,*
+*,fortune,*
+*,fortune\s*\|\s*cowsay,*
+*,cowsay,*
+*,*,U348bdks8cowFJS8dJF3hHDFj.jpg
+*,mkdir *final-mission,*
+*,cowsay.file,*
