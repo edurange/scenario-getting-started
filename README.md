@@ -8,8 +8,9 @@ This scenario is the most introductory and introduces the CLI
   <li> stuff</li>
   <li> toLearn</li>
   <li> ttylog: files needed for terminal logging and analysis</li>
-  </ul> 
+</ul> 
+  
 ## Files
 <ul>
   <li> milestones.regex: regular expressions used to recognize milestones
-  </ul>
+</ul>
