@@ -10,7 +10,7 @@
 *,man *ls,*
 *,man file,*
 *,file *dog\.jpg,dog\.jpg: ASCII text || *,file\ \*,dog\.jpg
-*,file *cat\.jpg,cat\.jpg: JPEG image || *file\ \*,cat\.jpg
+*,file *cat\.jpg,cat\.jpg: JPEG image || *,file\ \*,cat\.jpg
 *,cat *dog\.jpg,meow
 *,cat *imatextfiletoo.txt,SECRET CODE
 *,man *touch,*
