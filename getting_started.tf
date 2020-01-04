@@ -242,6 +242,11 @@ resource "aws_instance" "getting_started" {
     destination = "/home/ubuntu/tty_setup"
   }
 
+  provisioner "file"{
+    source = "${path.module}/clear_logs"
+    destination = "/home/ubuntu/clear_logs"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "set -eux",
@@ -249,9 +254,12 @@ resource "aws_instance" "getting_started" {
       "chmod +x /home/ubuntu/install",
       "chmod +x /home/ubuntu/setup_home",
       "chmod +x /home/ubuntu/tty_setup",
+      "chmod +x /home/ubuntu/clear_logs",
       "sudo /home/ubuntu/tty_setup",
       "sudo /home/ubuntu/install",
-      "rm /home/ubuntu/tty_setup"
+      "rm /home/ubuntu/tty_setup",
+      "rm /home/ubuntu/install",
+      "rm /home/ubuntu/setup_home"
     ]
   }
 
