@@ -20,7 +20,7 @@ Groups:
 Instances:
 - Name: getting_started
 Scoring:
-- Text: How many subdirectories are in your home directory?
+- Text: How many subdirectories are in your home directory? (Not including '.' and '..')
   Type: Number
   Options:
   - accept-integer
@@ -57,7 +57,7 @@ Scoring:
   Options: []
   Order: 5
   Points: 15
-- Text: What are the base filenames of the six image files hidden in your home directory that contain edurange in the name? You can enter each filename separately.
+- Text: What are the filenames (with extensions) of the six image files hidden in your home directory that contain edurange in the name? You can enter each filename separately.
   Type: String
   Options: []
   Values:
@@ -75,11 +75,11 @@ Scoring:
     Points: '3'
   Order: 6
   Points: 18
-- Text: What is the path (relative to your home directory) that has 'cowFJS' in it?
+- Text: What is the absolute path of the directory containing the file that has 'cowFJS' in its name?
   Type: String
   Options: []
   Values:
-  - Value: ./i/y/f/kitty/k/r/u/U348bdks8cowFJS8dJF3hHDFj.jpg
+  - Value: /usr/special/secrets/
     Points: '20'
   Order: 7
   Points: 20
