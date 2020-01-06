@@ -263,6 +263,7 @@ resource "aws_instance" "getting_started" {
       "sudo /home/ubuntu/install",
       "sudo chmod +x /home/ubuntu/iamfrustrated",
       "sudo cp /home/ubuntu/iamfrustrated /usr/bin",
+      "sudo cp /home/ubuntu/clear_logs /usr/bin/clear_logs",
       "rm /home/ubuntu/tty_setup",
       "rm /home/ubuntu/install",
       "rm /home/ubuntu/setup_home"
