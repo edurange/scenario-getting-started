@@ -64,6 +64,4 @@ mkdir $studentDIR/final-mission
 chown -R $player:$player $studentDIR/final-mission
 chmod 660 $studentDIR/final-mission
 
-chmod +x $studentDIR/clear_logs
-
 find $studentDIR -type d -exec chmod +x {} \;
