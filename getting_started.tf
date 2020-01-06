@@ -246,6 +246,10 @@ resource "aws_instance" "getting_started" {
     source = "${path.module}/clear_logs"
     destination = "/home/ubuntu/clear_logs"
   }
+  provisioner "file"{
+    source = "${path.module}/iamfrustrated"
+    destination = "/home/ubuntu/iamfrustrated"
+  }
 
   provisioner "remote-exec" {
     inline = [
@@ -257,6 +261,8 @@ resource "aws_instance" "getting_started" {
       "chmod +x /home/ubuntu/clear_logs",
       "sudo /home/ubuntu/tty_setup",
       "sudo /home/ubuntu/install",
+      "sudo chmod +x /home/ubuntu/iamfrustrated",
+      "sudo cp /home/ubuntu/iamfrustrated /usr/bin",
       "rm /home/ubuntu/tty_setup",
       "rm /home/ubuntu/install",
       "rm /home/ubuntu/setup_home"

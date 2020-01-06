@@ -9,11 +9,10 @@ rm alltty.$HOST.$USER
 touch alltty.$HOST.$USER
 
 find . -name "ttylog.$HOST.$USER.*" > ~/.logfiles
-while read logfile; do
-	rm $logfile
-	touch $logfile
+while read line; do
+	rm $line
+	touch $line
 done <~/.logfiles
 rm ~/.logfiles
 
-cd $USER
 
