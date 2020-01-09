@@ -3,7 +3,7 @@ Name: Getting_Started
 Description: Getting Started teaches the basics of using the terminal on Linux (but also can extend to Mac)
 Codelab: https://edurange.github.io/getting_started_tutorial/
 Instructions: Follow the steps in the student guide.
-InstructionsStudent: Follow the steps in the student guide.
+InstructionsStudent: Follow the steps in the CodeLabs and answer the questions on EDURange. Question responses are case-sensitive.
 Groups:
 - Name: Students
   Instructions:
@@ -21,7 +21,7 @@ Groups:
 Instances:
 - Name: getting_started
 Scoring:
-- Text: CodeLabs Page 4 - How many subdirectories are in your home directory? (Not including hidden directories))
+- Text: CodeLabs Page 4 - How many subdirectories are in your home directory? (Not including hidden directories)
   Type: Number
   Options:
   - accept-integer
@@ -38,7 +38,7 @@ Scoring:
     Points: '15'
   Order: 2
   Points: 15
-- Text: CodeLabs Page 5 - What does the line below NAME on the man page for the file command say?
+- Text: CodeLabs Page 5 - What does the line below NAME on the man page for the "file" command say?
   Type: String
   Options: []
   Values:
