@@ -179,7 +179,7 @@ resource "aws_security_group" "getting_started" {
 
 resource "aws_instance" "getting_started" {
   ami                    	= data.aws_ami.ubuntu.id
-  instance_type          	= "t2.nano"
+  instance_type          	= "t2.small"
   private_ip             	= "10.0.0.5"
   associate_public_ip_address   = true
   source_dest_check      	= false
