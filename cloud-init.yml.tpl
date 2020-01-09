@@ -17,8 +17,10 @@ users:
 write_files:
 - path: /etc/motd
   content: |2
+    #############  GETTING STARTED #############
     Welcome to the Getting Started EDURange scenario!
-    Follow the instructions on the student guide.
+    Follow the instructions in the CodeLabs and answer the questions on EDURange.
+    ############################################
 runcmd:
 - set -eu
 - chmod -x /etc/update-motd.d/*
